@@ -1,10 +1,14 @@
 import React from "react";
+import { useState } from "react";
 
 //include images into your bundle
 
 
 //create your first component
 const Home = () => {
+
+	const [ color, setColor] = useState ("")
+
 	return (
 		<div className="trafficLight container">
 			<div className="light red"></div>
