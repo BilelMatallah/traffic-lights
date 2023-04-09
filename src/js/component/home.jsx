@@ -12,11 +12,7 @@ const Home = () => {
 	//Conditional rendering
 	const [show, setShow] = useState(false)
 
-	const handleClick = () => {
-		show ? setExtra(<div className="light purple"></div>) : setExtra(<div></div>)
-		setShow(!show);
-		console.log(show)
-	}
+	const handleClick = () => {setShow(!show)}
 	
 	//Color selection
 	const [ color, setColor] = useState ("")
@@ -33,7 +29,7 @@ const Home = () => {
 			<div onClick={() => setColor ("green")} 
 			className={"light green" + (color === "green" ? " activado" : "")}></div>	
 
-			{extra}
+			{show ? <div className="light purple"></div> : <div></div>}
 
 			<div className="buttondiv">
 				<button onClick={handleClick}>Extra color</button>
