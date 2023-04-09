@@ -1,11 +1,18 @@
 import React from "react";
 import { useState } from "react";
+import Purple from "./purple.jsx";
 
 //include images into your bundle
 
 
 //create your first component
 const Home = () => {
+
+	const [ extra, setExtra ] = useState(
+		<div></div>
+	)
+
+	
 
 	const [ color, setColor] = useState ("")
 
@@ -17,9 +24,14 @@ const Home = () => {
 			<div onClick={() => setColor("orange")} 
 			className={"light orange" + (color === "orange" ? " activado" : "")}></div>
 			
-			
 			<div onClick={() => setColor ("green")} 
-			className={"light green" + (color === "green" ? " activado" : "")}></div>			
+			className={"light green" + (color === "green" ? " activado" : "")}></div>	
+
+			{extra}
+
+			<div className="buttondiv">
+				<button onClick={() => setExtra(<div className="light purple"></div>)}>Purple</button>
+			</div>
 		</div>
 	);
 };
