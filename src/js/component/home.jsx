@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import Purple from "./purple.jsx";
 
@@ -12,9 +12,16 @@ const Home = () => {
 		<div></div>
 	)
 
-	
+	const [show, setShow] = useState(false)
 
+	const handleClick = () => {
+		show ? setExtra(<div className="light purple"></div>) : setExtra(<div></div>)
+		setShow(!show);
+		console.log(show)
+	}
+	
 	const [ color, setColor] = useState ("")
+
 
 	return (
 		<div className="trafficLight container">
@@ -30,7 +37,7 @@ const Home = () => {
 			{extra}
 
 			<div className="buttondiv">
-				<button onClick={() => setExtra(<div className="light purple"></div>)}>Purple</button>
+				<button onClick={handleClick}>Purple</button>
 			</div>
 		</div>
 	);
