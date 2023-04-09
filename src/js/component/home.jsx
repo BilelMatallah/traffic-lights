@@ -2,16 +2,14 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import Purple from "./purple.jsx";
 
-//include images into your bundle
 
 
-//create your first component
 const Home = () => {
 
-	const [ extra, setExtra ] = useState(
-		<div></div>
-	)
+	//Display an extra color
+	const [ extra, setExtra ] = useState(<div></div>)
 
+	//Conditional rendering
 	const [show, setShow] = useState(false)
 
 	const handleClick = () => {
@@ -20,6 +18,7 @@ const Home = () => {
 		console.log(show)
 	}
 	
+	//Color selection
 	const [ color, setColor] = useState ("")
 
 
@@ -37,7 +36,7 @@ const Home = () => {
 			{extra}
 
 			<div className="buttondiv">
-				<button onClick={handleClick}>Purple</button>
+				<button onClick={handleClick}>Extra color</button>
 			</div>
 		</div>
 	);
