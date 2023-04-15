@@ -1,8 +1,11 @@
+
 .trafficLight {
     background-color: black;
     width: 150px;
     padding: 10px 0 10px 0;
     text-align: center;
+    border-radius: 10px;
+    margin-top: 100px;
 }
 
 .light {
