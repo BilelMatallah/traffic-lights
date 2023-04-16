@@ -20,7 +20,7 @@ const Home = () => {
 			
 			<div className= {"light red" + (color.red)}
 			onClick={() => setColor({
-				red: " activado",
+				red: " red-activated",
 				orange: "",
 				green: "",
 				purple: ""})}></div>
@@ -28,7 +28,7 @@ const Home = () => {
 			<div className= {"light orange" + (color.orange)}
 			onClick={() => setColor({
 				red: "",
-				orange: " activado",
+				orange: " orange-activated",
 				green: "",
 				purple: ""})}></div>
 			
@@ -36,15 +36,90 @@ const Home = () => {
 			onClick={() => setColor({
 				red: "",
 				orange: "",
-				green: " activado",
+				green: " green-activated",
 				purple: ""})}></div>	
 
-			{show && <div className={"light purple" + (color.purple)} 
+			{show ? <div className={"light purple" + (color.purple)} 
 			onClick={() => setColor({
 				red: "",
 				orange: "",
 				green: "",
-				purple: " activado"})}></div>}
+				purple: " purple-activated"})}></div> : <div></div>}
+
+			<div>
+				<button className="changer" onClick={()=>{
+
+					if (!show){
+
+						color.green === " green-activated"  //if green is activated
+						?  setColor({
+						red: "",
+						orange: " orange-activated"  , //change and activade orange
+						green: "",
+						purple: ""
+						})
+						: color.orange === " orange-activated" //if orange is activated
+						? setColor({
+						red: " red-activated"  , //change and activate red
+						orange: "",
+						green: "",
+						purple: ""
+						})
+						: color.red === " red-activated" //if red is activated
+						? setColor({
+						red: " "  , 
+						orange: "",
+						green: " green-activated", //change and activate green
+						purple: ""
+						})
+						: setColor({
+						red: "",
+						orange: "",
+						green: " green-activated",
+						purple: ""
+						  
+						})} 
+						
+					else {
+
+						color.green === " green-activated"  //if green is activated
+						?  setColor({
+						red: "",
+						orange: " orange-activated"  , //change and activade orange
+						green: "",
+						purple: ""
+						})
+						: color.orange === " orange-activated" //if orange is activated
+						? setColor({
+						red: " red-activated"  , //change and activate red
+						orange: "",
+						green: "",
+						purple: ""
+						})
+						: color.red === " red-activated" //if red is activated
+						? setColor({
+						red: ""  , 
+						orange: "",
+						green: "", 
+						purple: " purple-activated" //change and activate green 
+						})
+						: color.purple === " purple-activated" //if purple is activated
+						? setColor({
+						red: ""  , 
+						orange: "",
+						green: " green-activated", //change and activate green
+						purple: "" 
+						})
+						: setColor({
+						red: "",
+						orange: "",
+						green: " green-activated",
+						purple: ""
+							  
+						})}
+
+				}}>Change color</button>
+			</div>
 
 			<div className="extra">
 				<button onClick={handleClick}>Extra color</button>

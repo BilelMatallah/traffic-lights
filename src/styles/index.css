@@ -1,3 +1,6 @@
+body{
+    background-color: grey;
+}
 
 .trafficLight {
     background-color: black;
@@ -17,8 +20,20 @@
     margin-bottom: 10px;   
 }
 
-.activado {
-    box-shadow: 0 0 15px 10px white;
+.red-activated{
+    box-shadow: 0 0 30px 10px red;
+}
+
+.orange-activated{
+    box-shadow: 0 0 30px 10px orange;
+}
+
+.green-activated{
+    box-shadow: 0 0 30px 10px green;
+}
+
+.purple-activated{
+    box-shadow: 0 0 30px 10px rgb(208, 0, 191);
 }
 
 .red {
