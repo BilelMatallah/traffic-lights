@@ -1,37 +1,52 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import Purple from "./purple.jsx";
-
+import React, { useState } from "react";
 
 
 const Home = () => {
-
-	//Display an extra color
-	const [ extra, setExtra ] = useState(<div></div>)
-
 	//Conditional rendering
 	const [show, setShow] = useState(false)
 
 	const handleClick = () => {setShow(!show)}
 	
 	//Color selection
-	const [ color, setColor] = useState ("")
-
+	const [color, setColor] = useState({
+		red: "",
+		orange: "",
+		green: "",
+		purple: ""
+	});
 
 	return (
 		<div className="trafficLight container">
-			<div onClick={() => setColor("red")} 
-			className= {"light red" + (color === "red" ? " activado" : "")}></div>
 			
-			<div onClick={() => setColor("orange")} 
-			className={"light orange" + (color === "orange" ? " activado" : "")}></div>
+			<div className= {"light red" + (color.red)}
+			onClick={() => setColor({
+				red: " activado",
+				orange: "",
+				green: "",
+				purple: ""})}></div>
 			
-			<div onClick={() => setColor ("green")} 
-			className={"light green" + (color === "green" ? " activado" : "")}></div>	
+			<div className= {"light orange" + (color.orange)}
+			onClick={() => setColor({
+				red: "",
+				orange: " activado",
+				green: "",
+				purple: ""})}></div>
+			
+			<div className= {"light green" + (color.green)}
+			onClick={() => setColor({
+				red: "",
+				orange: "",
+				green: " activado",
+				purple: ""})}></div>	
 
-			{show ? <div className="light purple"></div> : <div></div>}
+			{show && <div className={"light purple" + (color.purple)} 
+			onClick={() => setColor({
+				red: "",
+				orange: "",
+				green: "",
+				purple: " activado"})}></div>}
 
-			<div className="buttondiv">
+			<div className="extra">
 				<button onClick={handleClick}>Extra color</button>
 			</div>
 		</div>
